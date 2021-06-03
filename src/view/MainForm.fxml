@@ -26,10 +26,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label id="title" fx:id="lblTitle" alignment="CENTER" layoutX="10.0" layoutY="13.0" prefHeight="35.0" prefWidth="582.0" text="Label" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+            <Label id="title" fx:id="lblTitle" alignment="CENTER" layoutX="10.0" layoutY="13.0" opacity="0.9" prefHeight="35.0" prefWidth="582.0" text="Label" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
             </Label>
+            <ImageView fx:id="imgNav" fitHeight="24.0" fitWidth="24.0" layoutX="19.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0">
+               <image>
+                  <Image url="@assets/icons/back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="59.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <AnchorPane fx:id="pneStage" layoutY="59.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
    </children>
 </AnchorPane>

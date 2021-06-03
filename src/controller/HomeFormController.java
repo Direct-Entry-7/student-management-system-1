@@ -10,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import util.NavActionListner;
 
 import java.io.IOException;
 
@@ -46,19 +47,10 @@ public class HomeFormController {
         navigate("Add New Student", "/view/StudentForm.fxml");
     }
 
-    private void navigate(String title, String url) {
-        try {
-            Parent root = FXMLLoader.load(this.getClass().getResource(url));
-            Scene addNewStudentScene = new Scene(root);
-            Stage primaryStage = (Stage) (rprAddNewStudent.getScene().getWindow());
-            primaryStage.setResizable(true);
-            primaryStage.setScene(addNewStudentScene);
-            primaryStage.setTitle(title);
-            primaryStage.centerOnScreen();
-            Platform.runLater(() -> primaryStage.setResizable(false));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void navigate(String title, String url) {//
+        MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
+        ctrl.navigate(title, url, MainFormController.NAV_ICON_BACK, () ->
+                ctrl.navigate("Student Management System","/view/HomeForm.fxml",MainFormController.NAV_ICON_HOME));
     }
 
     public void pneAddNewStudent_OnKeyReleased(KeyEvent keyEvent) throws IOException {
