@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="616.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFormController">
-
+<AnchorPane prefHeight="616.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFormController">
+   <children>
+      <Text layoutX="198.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Student ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="137.0" layoutY="42.0">
+         <image>
+            <Image url="@assets/Student%20Registration.png" />
+         </image>
+      </ImageView>
+      <AnchorPane accessibleRole="TEXT_FIELD" layoutX="19.0" layoutY="130.0" prefHeight="77.0" prefWidth="562.0">
+         <children>
+            <TextField fx:id="txtNIC" accessibleText="NIC" layoutX="5.0" layoutY="13.0" prefHeight="75.0" prefWidth="513.0" promptText="Eg:- 951342573V" style="-fx-background-color: white;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="13.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane accessibleRole="TEXT_FIELD" layoutX="19.0" layoutY="231.0" prefHeight="77.0" prefWidth="562.0">
+         <children>
+            <TextField fx:id="txtFullName" accessibleText="Full Name" layoutX="5.0" layoutY="13.0" prefHeight="75.0" prefWidth="513.0" promptText="Full Name" style="-fx-background-color: white;" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="13.0" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
