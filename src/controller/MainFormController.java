@@ -2,6 +2,7 @@ package controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -44,6 +45,11 @@ public class MainFormController {
             imgNav.setVisible(true);
             this.icon = icon;
             this.navActionListner = navActionListner;
+            if(this.navActionListner == null){
+                imgNav.setCursor(Cursor.DEFAULT);
+            }else{
+                imgNav.setCursor(Cursor.HAND);
+            }
             /* Set the icon*/
             switch (icon){
                 case NAV_ICON_NONE:
@@ -122,7 +128,7 @@ public class MainFormController {
 
 
     private void swapNavIcon(){
-        if(icon != NAV_ICON_NONE){
+        if(icon != NAV_ICON_NONE && navActionListner != null){
             Image temp = imgNav.getImage();
             imgNav.setImage((Image)imgNav.getUserData());
             imgNav.setUserData(temp);
