@@ -10,15 +10,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import util.AppBarIcon;
 import util.NavActionListner;
 
 import java.io.IOException;
 
 public class MainFormController {
-
-    public static final int NAV_ICON_NONE = 0;
-    public static final int NAV_ICON_BACK = 1;
-    public static final int NAV_ICON_HOME = 2;
 
     public ImageView imgClose;
     public ImageView imgMinimize;
@@ -28,7 +25,7 @@ public class MainFormController {
     public AnchorPane pneStage;
     private double xMousePos;
     private double yMousePos;
-    private int icon = NAV_ICON_NONE;
+    private AppBarIcon icon = AppBarIcon.NAV_ICON_NONE;
 
     private NavActionListner navActionListner = null;
 
@@ -37,10 +34,10 @@ public class MainFormController {
 
     }
 
-    public void navigate(String title,String url, int icon){
+    public void navigate(String title,String url, AppBarIcon icon){
         navigate(title,url,icon,null);
     }
-    public void navigate(String title,String url, int icon, NavActionListner navActionListner){
+    public void navigate(String title,String url, AppBarIcon icon, NavActionListner navActionListner){
         try {
             imgNav.setVisible(true);
             this.icon = icon;
@@ -128,7 +125,7 @@ public class MainFormController {
 
 
     private void swapNavIcon(){
-        if(icon != NAV_ICON_NONE && navActionListner != null){
+        if(icon != AppBarIcon.NAV_ICON_NONE && navActionListner != null){
             Image temp = imgNav.getImage();
             imgNav.setImage((Image)imgNav.getUserData());
             imgNav.setUserData(temp);

@@ -1,5 +1,8 @@
 package util;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.Bounds;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
@@ -13,11 +16,16 @@ public class MaterialUI {
         for (TextField txt : textFields) {
             AnchorPane pneTextContainer = (AnchorPane) txt.getParent();
             String floatedText = txt.getAccessibleText();
-            Canvas canvas = new Canvas(pneTextContainer.getPrefWidth(), pneTextContainer.getPrefHeight());
+            Canvas canvas = new Canvas();
             GraphicsContext ctx = canvas.getGraphicsContext2D();
 
             pneTextContainer.getChildren().add(0,canvas);
-            redrawTextFieldCanvas(canvas, ctx, floatedText, false);
+
+            pneTextContainer.layoutBoundsProperty().addListener((observable, oldValue, newValue) -> {
+                canvas.setWidth(newValue.getWidth());
+                canvas.setHeight(newValue.getHeight());
+                redrawTextFieldCanvas(canvas, ctx, floatedText, false);
+            });
 
             txt.focusedProperty().addListener((observable, oldValue, newValue) -> {
                 redrawTextFieldCanvas(canvas, ctx, floatedText, newValue);

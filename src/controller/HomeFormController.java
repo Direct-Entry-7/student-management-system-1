@@ -5,6 +5,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import util.AppBarIcon;
 
 import java.io.IOException;
 
@@ -43,8 +44,8 @@ public class HomeFormController {
 
     private void navigate(String title, String url) {//
         MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
-        ctrl.navigate(title, url, MainFormController.NAV_ICON_BACK, () ->
-                ctrl.navigate("Student Management System","/view/HomeForm.fxml",MainFormController.NAV_ICON_HOME));
+        ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
+                ctrl.navigate("Student Management System","/view/HomeForm.fxml",AppBarIcon.NAV_ICON_HOME));
     }
 
     public void pneAddNewStudent_OnKeyReleased(KeyEvent keyEvent) throws IOException {
