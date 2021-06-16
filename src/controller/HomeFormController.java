@@ -10,6 +10,7 @@ import util.AppBarIcon;
 import java.io.IOException;
 
 public class HomeFormController {
+
     public JFXRippler rprAddNewStudent;
     public AnchorPane pneAddNewStudent;
     public JFXRippler rprSearchStudents;
@@ -42,12 +43,6 @@ public class HomeFormController {
         navigate("Add New Student", "/view/StudentForm.fxml");
     }
 
-    private void navigate(String title, String url) {//
-        MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
-        ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
-                ctrl.navigate("Student Management System","/view/HomeForm.fxml",AppBarIcon.NAV_ICON_HOME));
-    }
-
     public void pneAddNewStudent_OnKeyReleased(KeyEvent keyEvent) throws IOException {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
             navigate("Add New Student", "/view/StudentForm.fxml");
@@ -58,5 +53,11 @@ public class HomeFormController {
         if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
             navigate("Search Students", "/view/SearchStudentsForm.fxml");
         }
+    }
+
+    private void navigate(String title, String url) {
+        MainFormController ctrl = (MainFormController) pneSearchStudents.getScene().getUserData();
+        ctrl.navigate(title, url, AppBarIcon.NAV_ICON_BACK, () ->
+                ctrl.navigate("Student Management System", "/view/HomeForm.fxml", AppBarIcon.NAV_ICON_HOME));
     }
 }
